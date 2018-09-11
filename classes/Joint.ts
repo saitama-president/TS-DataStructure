@@ -2,8 +2,16 @@ declare function require(x: string): any;
 
 const math3d = require('math3d');
 
+export class Obj{
+
+  public prop:Object={};
+  constructor(prop:Object){
+  }
+}
+
 export class Joint{
- constructor(
+  constructor(prop:Object);
+  constructor(
     $rotate:Vector3,
     $normal:Vector3,
     $offset:Vector3 = new Vector3(0,0,0),
@@ -13,14 +21,18 @@ export class Joint{
     this.$normal=$normal;
     this.$offset=$offset;
     this.$parent=$parent; 
+    if(prop){
+      this.prop=prop;
+    }
+
   }
   SetParent( p:Joint ){
     this.$parent = p;
     p.AddChild(this);
     return;
   }
+  props:Object =  {};
   //回転範囲
-
   $parent:Joint = null;
   $children:Array<Joint>=[];
 

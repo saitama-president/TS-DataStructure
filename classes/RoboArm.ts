@@ -13,7 +13,7 @@ function get_vector_length(v : Vector3 ) {
 }
 
 function dot_product(vl:Vector3 ,vr:Vector3) {
-  return vl.x * vr.x + vl.y * vr.y + vl.z * vr.z;
+  return (vl.x * vr.x) + vl.y * vr.y + vl.z * vr.z;
 }
 
 //２つのベクトルABのなす角度θを求める
@@ -57,9 +57,13 @@ export default class RoboArm{
   }
 
   move($T:Vector3){
+    var $result=[];
+
+    console.log(`MOVE TO [${$T.x},${$T.y},${$T.z}  ] `)
     //var q1 = Quaternion.Euler(0, 90, 0);
     //q1.mulVector3(v1);                // (0, 0, -1) <- v1 rotated 90 degrees in y-Axis
     //q1.angleAxis;
+    
 
     //回転すべき方向を割り出そう！
 
@@ -72,12 +76,14 @@ export default class RoboArm{
     console.log(`T=${$T}`);
     //三角形を割り出すぞ
     this.Joints.reverse().forEach((j:Joint)=>{
-      if(!j.$parent)return;
-      let A:number = j.$normal.magnitude;
-      let B:number = j.$parent.$normal.magnitude;
-      let C = $T;
       
-      console.log(`A= ${A} B=${B} C=${C}`);      
+      if(!j.$parent)return;
+
+      let A:Joint = j.$parent;
+      let B:Joint = j;
+      let C = $T;
+
+      let $tri:Triangle = this.getTriangle(A,B,C);
     });
 
     return true;
@@ -91,8 +97,23 @@ export default class RoboArm{
     `;
   }
 
-  private getTriangle(Root:Joint,T:Joint,Target:Vector3):Triangle{
-    return null;
+  private getTriangle(
+    $root:Joint,
+    T:Joint,
+    Target:Vector3
+    ):Triangle{
+    //まず三つの長さを取得
+
+    console.log("仮想三角形取得開始");
+    
+    let A:number =  $root.$normal.magnitude;
+    let B:number = $root.$parent
+        ?$root.$parent.NormalAll()
+        :$root.NormalAll();
+    let C:number = Target.magnitude;
+    
+    console.log(`長さ: ${A} - ${B} - ${C} `);
+    return new Triangle(A,B,C);
   }
 }
 
@@ -103,6 +124,23 @@ class Triangle{
   
 
   constructor(A:number,B:number,C:number){
+    this.A=A;
+    this.B=B;
+    this.C=C;
+  }
+
+  acos():number{
+      let $cos=( 
+           Math.pow(this.B,2.0)
+          +Math.pow(this.C,2.0)
+          -Math.pow(this.A,2.0)
+        ) / (
+           2.0 
+         * this.B 
+         * this.C
+        );
+      console.log("COS="+$cos);
+      return Math.acos($cos) * 180.0 / Math.PI;
   }
 
   
@@ -118,4 +156,3 @@ function ACos(A:number ,B:number,C:number){
   * 180.0 / Math.PI;
 }
 
-//console.log("ACOS="+ACos(3,4,5));

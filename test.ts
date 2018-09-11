@@ -30,29 +30,36 @@ let ArmRoot=new Joint(
     new Vector3(0,1,0),//回転方向
     new Vector3(0,0.2,0)//棒
 );
+//根本
 let ArmA2=new Joint(
     new Vector3(1,0,0),//回転方向
     new Vector3(1,0,0),
     Vector3.zero,
     ArmRoot
 );
+//根本2
+let ArmA3=new Joint(
+    new Vector3(1,0,0),//回転方向
+    new Vector3(1,0,0),
+    Vector3.zero,
+    ArmA2
+);
 
-console.dir(ArmA2);
 ArmA2.SetParent( ArmRoot );
+ArmA3.SetParent( ArmA2 );
 
 
 
 let arm = new RoboArm(
 [
   ArmRoot,
-  ArmA2
+  ArmA2,
+  ArmA3,
 ]
 );
 
 console.log(` ${arm}`);
-arm.move(Vector3.up);
-console.log("NORMAL="+ArmRoot.NormalAll());
-console.log(` OKITE `);
+arm.move(new Vector3(1,0,0.5));
 //let R=AFV(Vector3.up,Vector3.right);
 
 //console.log(` R = ${R} `);
