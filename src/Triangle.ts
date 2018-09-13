@@ -1,6 +1,3 @@
-import math3d = require('math3d');
+import math3d = require("math3d");
 
-
-class Triangle{
-  
-}
+class Triangle {}

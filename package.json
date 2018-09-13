@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive --require ts-node/register 'test/*.ts'"
+    "test": "mocha --recursive --require ts-node/register 'test/*.ts'",
+    "ok": "echo 12345",
+    "format": "prettier --write './**/*.ts'"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +16,10 @@
     "typescript": "^3.0.3"
   },
   "devDependencies": {
-    "@types/jasmine": "^2.8.8"
+    "@types/jasmine": "^2.8.8",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "prettier": "^1.14.2",
+    "tslint": "^5.11.0"
   }
 }
