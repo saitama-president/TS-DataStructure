@@ -14,8 +14,23 @@ function main() {
     res.json([1, 2, 3, 4, 5]);
   });
 }
-console.dir("BEGIN ALL");
 
 
+class O {
+  public static ALL:Array<number> = [];
+  
+  get A():number{
+    return 1;
+  }
+  get B():Array<number> {
+    return O.ALL.filter(item=>true);
+  }
+  
+}
 
+var a = new Arm(0.15, 0);
 
+console.log(`${a}`);
+var o = new O();
+
+console.dir(`BEGIN ALL ${o.A}`);

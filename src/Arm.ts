@@ -7,5 +7,13 @@ export class Arm extends Relation {
     super({});
   }
 
-  public Length = (): number => 1;
+  get Length():number{return 1;}
+
+  public MoveTo(to:Vector3){
+  }
+
+  public toString = (): string => `
+    this.is Arm ID=${this.id}
+    Legth = ${this.Length}
+  `;
 }

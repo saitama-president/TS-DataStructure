@@ -1,29 +1,41 @@
 import math3d = require("math3d");
 
 export class Relation {
-  private static All: Array<Relation>;
+  private static All: Array<Relation> = [];
 
   private $parent: Relation;
   private $prop: Object;
-  public static Generate(prop: Object): Relation {
-    var result = new Relation(prop);
-    return result;
-  }
+  private $id: number;
 
   constructor(prop: Object) {
+    Relation.All.push(this);
+    this.$id = Relation.All.length;
     this.$prop = prop;
   }
 
-  public parent = (): Relation => this.$parent;
+  // >>geter ここから
+  get parent(): Relation {
+    return this.$parent;
+  }
 
-  public children = (): Array<Relation> =>
-    Relation.All.filter(r => r.parent() == this);
+  get children(): Array<Relation>{
+    return Relation.All.filter((r)=>r.parent==this);
+  }
 
-  public isRoot = (): boolean => !this.parent();
-  public hasChildren = (): boolean => 0 < this.children().length;
+  get isRoot(): boolean {
+    return !this.parent;
+  }
+  get hasChildren(): boolean {
+    return 0 < this.children.length;
+  }
+  get id(): number {
+    return this.$id;
+  }
 
-  public static a = (): number => 1;
+  // <<geter ここまで
+
+  // >> setter　ここから
+  //set parent(p: Relation) {}
+
+  // << setter ここまで
 }
-
-console.log("OK");
-console.log(Relation.a());
