@@ -18,8 +18,8 @@ export class Relation {
     return this.$parent;
   }
 
-  get children(): Array<Relation>{
-    return Relation.All.filter((r)=>r.parent==this);
+  get children(): Array<Relation> {
+    return Relation.All.filter(r => r.parent == this);
   }
 
   get isRoot(): boolean {

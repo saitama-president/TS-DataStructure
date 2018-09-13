@@ -8,7 +8,7 @@ export class Obj {
 }
 
 export class Joint {
-  constructor(prop: Object);
+  
   constructor(
     $rotate: Vector3,
     $normal: Vector3,
@@ -19,9 +19,6 @@ export class Joint {
     this.$normal = $normal;
     this.$offset = $offset;
     this.$parent = $parent;
-    if (prop) {
-      this.prop = prop;
-    }
   }
   SetParent(p: Joint) {
     this.$parent = p;

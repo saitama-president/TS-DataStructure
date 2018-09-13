@@ -16,21 +16,8 @@ function main() {
 }
 
 
-class O {
-  public static ALL:Array<number> = [];
-  
-  get A():number{
-    return 1;
-  }
-  get B():Array<number> {
-    return O.ALL.filter(item=>true);
-  }
-  
-}
-
 var a = new Arm(0.15, 0);
-
+a.MoveTo(new Vector3(1,2,3));
 console.log(`${a}`);
-var o = new O();
 
-console.dir(`BEGIN ALL ${o.A}`);
+console.dir(`BEGIN ALL ${a}`);
