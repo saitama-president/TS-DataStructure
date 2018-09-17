@@ -8,7 +8,6 @@ export class Obj {
 }
 
 export class Joint {
-  
   constructor(
     $rotate: Vector3,
     $normal: Vector3,

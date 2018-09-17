@@ -1,24 +1,23 @@
 import Component from "./Component";
 
-  export default class Node {
+namespace ST {
+  export class Node {
     private static All: Array<Node> = [];
 
     private $parent: Node;
     private $prop: Object;
     private $id: number;
-    private $components:Array<Component> = [];
+    private $components: Array<Component> = [];
 
-
-    constructor(prop: Object = null ) {
+    constructor(prop: Object = null) {
       Node.All.push(this);
       this.$id = Node.All.length;
       this.$prop = prop;
     }
     // -- >> setter ここから
-    set parent(p:Node){
+    set parent(p: Node) {
       this.$parent = p;
     }
-
 
     // << -- setter ここまで
 
@@ -41,17 +40,19 @@ import Component from "./Component";
       return this.$id;
     }
 
-    get root():Node{
-      var needle:Node = this;
-      while(needle.parent){
-        needle=needle.parent;
+    get root(): Node {
+      var needle: Node = this;
+      while (needle.parent) {
+        needle = needle.parent;
       }
       return needle;
     }
     // << --getter ここまで
 
-
-    public append(o:Node){
+    public append(o: Node) {
       o.parent = this;
-    }  
+    }
   }
+}
+
+export default ST.Node;

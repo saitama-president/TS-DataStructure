@@ -1,6 +1,4 @@
-import { Joint, Quaternion, Vector3 } from "./src/Joint";
-import { Relation } from "./src/Relation";
-import { Arm } from "./src/Arm";
+import ST from "./src/Node";
 
 import * as Express from "express";
 
@@ -15,10 +13,4 @@ function main() {
   });
 }
 
-
-var a = new Arm(0.15, 0);
-a.MoveTo(new Vector3(1,2,3));
-console.log(`${a}`);
-
-console.dir(`BEGIN ALL ${a}`);
-
+console.dir(`BEGIN ALL `);
