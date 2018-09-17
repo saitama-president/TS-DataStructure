@@ -1,4 +1,4 @@
-import ST from "./src/Node";
+import Node from "./src/Node";
 
 import * as Express from "express";
 
@@ -13,4 +13,7 @@ function main() {
   });
 }
 
+var N=new Node();
+
+console.log(JSON.stringify(N));
 console.dir(`BEGIN ALL `);

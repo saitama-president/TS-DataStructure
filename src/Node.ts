@@ -9,6 +9,8 @@ namespace ST {
     private $id: number;
     private $components: Array<Component> = [];
 
+
+
     constructor(prop: Object = null) {
       Node.All.push(this);
       this.$id = Node.All.length;
@@ -53,6 +55,7 @@ namespace ST {
       o.parent = this;
     }
   }
+
 }
 
 export default ST.Node;
