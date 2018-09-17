@@ -1,61 +1,42 @@
-import Component from "./Component";
+import Attachment from "./Attachment";
+import testAttachment from "./sample/testAttachment";
 
-namespace ST {
-  export class Node {
-    private static All: Array<Node> = [];
+namespace ST.DATA {
+  export abstract class Node {
+    protected $prop: Object = {};
+    protected $id: number;
+    protected $attachments:Array<Attachment>=[];
 
-    private $parent: Node;
-    private $prop: Object;
-    private $id: number;
-    private $components: Array<Component> = [];
-
-
-
-    constructor(prop: Object = null) {
+    protected static $All:Array<any>=[];
+    public static get All():Array<Node>{return Node.$All};
+    public constructor(prop:Object={}){
+      this.$prop=Object;
+      this.$id = Node.All.length+1;
       Node.All.push(this);
-      this.$id = Node.All.length;
-      this.$prop = prop;
-    }
-    // -- >> setter ここから
-    set parent(p: Node) {
-      this.$parent = p;
+      
     }
 
-    // << -- setter ここまで
-
-    // >>geter ここから
-    get parent(): Node {
-      return this.$parent;
+    public Remove():void{
+      let needle=this;
+      let result= Node.All.filter(a=>{
+        console.log(`A = ${a.$id} == B = ${needle.$id} ${a == needle}`);
+        return a != needle;
+      });
+      console.dir(result);
+      Node.$All=result;
     }
 
-    get children(): Array<Node> {
-      return Node.All.filter(r => r.parent == this);
+    public Attachment(a:Attachment):void{
+      this.$attachments.push(a);
     }
 
-    get isRoot(): boolean {
-      return !this.parent;
-    }
-    get hasChildren(): boolean {
-      return 0 < this.children.length;
-    }
-    get id(): number {
-      return this.$id;
+    public getAttachment<T extends Attachment>(ctor: { new(): T }):T{      
+      //var o=this.$attachments.find(o=> o instanceof T);      
+      return  this.$attachments.find(o=>o instanceof ctor) as T;
     }
 
-    get root(): Node {
-      var needle: Node = this;
-      while (needle.parent) {
-        needle = needle.parent;
-      }
-      return needle;
-    }
-    // << --getter ここまで
 
-    public append(o: Node) {
-      o.parent = this;
-    }
   }
-
 }
 
-export default ST.Node;
+export default ST.DATA.Node;
