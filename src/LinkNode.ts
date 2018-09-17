@@ -1,29 +1,19 @@
 import Node from "./Node";
 
-
 namespace ST.DATA {
-  export class TreeNode extends Node {
-    private $parent: TreeNode;
+  export class LinkNode extends Node {
+    
 
-    public static get All():Array<TreeNode>{
-      return TreeNode.$All.filter(o=>o instanceof TreeNode);
+    public static get All():Array<LinkNode>{
+      return LinkNode.$All.filter(o=>o instanceof LinkNode);
     }
 
     public constructor(prop:Object={}){
       super(prop);
     }
 
-    public toString():string{
-      return `\v TreeNode ID=${this.id}
-      \v CHILDREN:${this.children.reduce((carry:string,item:Node)=>{
-        carry+="<"+item+">";
-        return carry;
-      },"")}
-      `;
-    }
-
     // -- >> setter ここから
-    set parent(p: TreeNode) {
+    set from(p: LinkNode) {
       this.$parent = p;
     }
 
@@ -59,7 +49,9 @@ namespace ST.DATA {
     public append(o: TreeNode) {
       o.parent = this;
     }
+
+    
   }
 }
 
-export default ST.DATA.TreeNode;
+export default ST.DATA.LinkNode;

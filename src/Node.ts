@@ -36,6 +36,9 @@ namespace ST.DATA {
     }
 
 
+    public toSVG():string{
+      return "";
+    }
   }
 }
 

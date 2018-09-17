@@ -2,16 +2,20 @@ import Node from "./src/Node";
 import testAttachment from "./src/sample/testAttachment";
 
 import * as Express from "express";
+import TreeNode from "./src/TreeNode";
 
 
-var N=new Node();
+var A=new TreeNode();
+var B=new TreeNode();
+var C=new TreeNode();
 
-N.Attachment(new testAttachment());
+A.append(B);
+B.append(C);
 
 console.dir(`BEGIN ALL `);
 
-console.dir(N);
+console.log(`${A}`);
 
-var attach:testAttachment=N.getAttachment<testAttachment>(testAttachment);
+//var attach:testAttachment=N.getAttachment<testAttachment>(testAttachment);
 
-console.dir(attach);
+//console.dir(attach);
