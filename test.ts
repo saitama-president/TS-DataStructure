@@ -21,3 +21,4 @@ a.MoveTo(new Vector3(1,2,3));
 console.log(`${a}`);
 
 console.dir(`BEGIN ALL ${a}`);
+
