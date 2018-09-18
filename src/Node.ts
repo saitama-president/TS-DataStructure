@@ -19,7 +19,6 @@ namespace ST.DATA {
     public Remove():void{
       let needle=this;
       let result= Node.All.filter(a=>{
-        console.log(`A = ${a.$id} == B = ${needle.$id} ${a == needle}`);
         return a != needle;
       });
       console.dir(result);
@@ -31,15 +30,10 @@ namespace ST.DATA {
     }
 
     public getAttachment<T extends Attachment>(ctor: { new(): T }):T{      
-      //var o=this.$attachments.find(o=> o instanceof T);      
       return  this.$attachments.find(o=>o instanceof ctor) as T;
     }
 
-
     public toSVG():string{
-      return "";
-    }
-  }
 }
 
 export default ST.DATA.Node;
