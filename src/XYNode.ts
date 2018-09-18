@@ -21,9 +21,10 @@ namespace ST.DATA {
     }
 
     public constructor($x:number,$y:number){
+      console.log(`create ${$x}:${$y}`);
       super({
-        x:$x,
-        y:$y
+        "x":$x,
+        "y":$y
       });
     }
 
@@ -40,10 +41,10 @@ namespace ST.DATA {
 
     // >>geter ここから
     get X():number{
-      return this.prop.x;
+      return this.$prop.x;
     }
     get Y():number{
-      return this.prop.y;
+      return this.$prop.y;
     }
 
 

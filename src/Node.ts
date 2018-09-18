@@ -10,7 +10,7 @@ namespace ST.DATA {
     protected static $All: Array<any> = [];
     public static get All(): Array<Node> { return Node.$All };
     public constructor(prop: Object = {}) {
-      this.$prop = Object;
+      this.$prop = prop;
       this.$id = Node.All.length + 1;
       Node.All.push(this);
 
