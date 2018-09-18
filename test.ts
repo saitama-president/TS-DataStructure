@@ -1,5 +1,5 @@
 import Node from "./src/Node";
-import testAttachment from "./src/sample/testAttachment";
+import testAttachment from "./sample/testAttachment";
 
 import * as Express from "express";
 import TreeNode from "./src/TreeNode";
