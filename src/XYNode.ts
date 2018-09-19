@@ -4,6 +4,8 @@ namespace ST.DATA {
 
   //縦横座標を持つノード。
   export class XYNode extends Node {
+    private $x:number=0;
+    private $y:number=0;
     public static Generate(width:number,height:number):Array<XYNode>{
 
       var result:Array<XYNode> = [];
@@ -21,11 +23,12 @@ namespace ST.DATA {
     }
 
     public constructor($x:number,$y:number){
-      console.log(`create ${$x}:${$y}`);
       super({
         "x":$x,
         "y":$y
       });
+      this.$x=$x;
+      this.$y=$y;
     }
 
     // -- >> setter ここから
@@ -41,10 +44,10 @@ namespace ST.DATA {
 
     // >>geter ここから
     get X():number{
-      return this.$prop.x;
+      return this.$x;
     }
     get Y():number{
-      return this.$prop.y;
+      return this.$y;
     }
 
 
