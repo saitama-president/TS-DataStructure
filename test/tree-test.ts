@@ -11,15 +11,12 @@ describe("Node Test V", () => {
   Middle.parent =Root;
 
   it("Root->Root Test ", () => {
-        console.log(Root.root);
         assert.isTrue(Root == Root.root);
   });
   it("Middle->Root Test ", () => {
-        console.log(Tip.root);
         assert.isTrue(Root == Middle.root);
   });
   it("Tip->Root Test ", () => {
-        console.log(Tip.root);
         assert.isTrue(Root == Tip.root);
   });
 });

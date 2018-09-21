@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive --require ts-node/register 'test/*.ts'",
+    "test": "mocha --reporter tap --recursive --require ts-node/register 'test/*.ts'",
     "ok": "echo 12345",
     "format": "prettier --write './**/*.ts'",
     "watch": "ts-node scripts/watch.ts 'ts-node test.ts'"
