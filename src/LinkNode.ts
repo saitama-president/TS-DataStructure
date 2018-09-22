@@ -55,14 +55,27 @@ namespace ST.DATA {
     }
 
     /* GETTER ここまで */
+    public Move(i:number = 0):LinkNode{
 
-    public Move(i:number = 0){
-      var needle:LinkNode=this;
+      return i==0?this
+        :(
+          0 < i
+          ?this.Next.Move(i-1)
+          :this.Prev.Move(i+1)
+        );
+    }
 
-      while(i != 0){
-        needle= 0<i?  needle.Next:needle.Prev;
-      }
-      return needle;
+
+    public getRange(endPoint:number):Array<LinkNode>{
+      var result:Array<LinkNode>=[];
+      /**
+       * 方向性を決める
+       */
+
+
+
+      return result;
+
     }
   }
 }
