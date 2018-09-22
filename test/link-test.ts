@@ -38,5 +38,11 @@ describe("リンクノードのテスト", () => {
     assert(A.Prev == E);
   });
 
+  it(" A >> 2 は C になってる？ ", () => {
+    assert(A.Move(2) == C);
+  });
+  it(" D << 3 は A になってる？ ", () => {
+    assert(D.Move(-3) == A);
+  });
 
 });
