@@ -31,17 +31,6 @@ namespace ST.DATA {
       this.$y=$y;
     }
 
-    // -- >> setter ここから
-    set out(n: XYNode) {
-      //this. = n;
-    }
-
-    set in(n:XYNode){
-
-    }
-
-    // << -- setter ここまで
-
     // >>geter ここから
     get X():number{
       return this.$x;
@@ -49,7 +38,6 @@ namespace ST.DATA {
     get Y():number{
       return this.$y;
     }
-
 
     get Left(): XYNode {
       return this;
@@ -65,7 +53,7 @@ namespace ST.DATA {
     get Down(): XYNode {
       return this;
     }
-    // << --getter ここまで
+
   }
 }
 
