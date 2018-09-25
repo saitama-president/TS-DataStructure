@@ -2,12 +2,15 @@
   "name": "ts-datastructure",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "index.js",
+  "types":"index.d.ts",
   "scripts": {
     "test": "mocha --reporter tap --recursive --require ts-node/register 'test/*.ts'",
     "ok": "echo 12345",
     "format": "prettier --write './**/*.ts'",
-    "watch": "ts-node scripts/watch.ts 'ts-node test.ts'"
+    "watch": "ts-node scripts/watch.ts 'ts-node test.ts'",
+    "build":"tsc"
+    
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +19,7 @@
     "@types/core-js": "^2.5.0",
     "express": "^4.16.3",
     "math3d": "^0.2.2",
+    "ts-loader": "^5.2.0",
     "ts-node": "^7.0.1",
     "typescript": "^3.0.3"
   },

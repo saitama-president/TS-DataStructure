@@ -1,4 +1,4 @@
-import Attachment from "./src/Attachment"
+import Attachment from "../src/Attachment"
 
 export default class testAttachment extends Attachment{
 

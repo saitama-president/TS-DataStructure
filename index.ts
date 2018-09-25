@@ -1,5 +1,13 @@
+import Node from "./src/Node";
+import TreeNode from "./src/TreeNode";
+import LinkNode  from "./src/LinkNode";
+import XYNode  from "./src/XYNode";
 
-export * from "./src/Node";
-export * from  "./src/TreeNode";
-export *  from "./src/LinkNode";
-export *  from "./src/XYNode";
+export { 
+  Node,
+  TreeNode,
+  LinkNode,
+  XYNode
+};
+
+
