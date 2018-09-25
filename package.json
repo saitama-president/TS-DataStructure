@@ -2,16 +2,19 @@
   "name": "ts-datastructure",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "types":"index.d.ts",
+  "main": "dist/index.js",
+  "types":"dist/index.d.ts",
   "scripts": {
     "test": "mocha --reporter tap --recursive --require ts-node/register 'test/*.ts'",
     "ok": "echo 12345",
     "format": "prettier --write './**/*.ts'",
     "watch": "ts-node scripts/watch.ts 'ts-node test.ts'",
-    "build":"tsc"
+    "build":"tsc --outDir ./dist/"
     
   },
+  "exclude":[
+    "./dist/**/*"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
