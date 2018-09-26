@@ -1,10 +1,11 @@
-import Node from "./Node";
+import Node from "../Node";
 
 namespace ST.DATA {
 
   //入力：出力がN:Nになっているノード。無限ループもある
   export class OmniNode extends Node {
 
+    private $out:Map<()=>boolean,Node>;
 
     public static get All():Array<OmniNode>{
       return OmniNode.$All.filter(o=>o instanceof OmniNode);
@@ -14,28 +15,19 @@ namespace ST.DATA {
       super(prop);
     }
 
-    // -- >> setter ここから
-    set out(n: OmniNode) {
-      //this. = n;
+    public next():OmniNode{
+
+      for(var k in this.$out.keys()){
+        //
+      }
+      return this;
     }
-
-    set in(n:OmniNode){
-
-    }
-
     // << -- setter ここまで
 
     // >>geter ここから
     get out(): OmniNode {
       return this;
     }
-    get in(): OmniNode {
-      return this;
-    }
-
-    // << --getter ここまで
-
-
     
   }
 }
