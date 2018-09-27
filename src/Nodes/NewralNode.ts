@@ -2,13 +2,13 @@ import Node from "../Node";
 
 namespace ST.DATA {
 
-  //入力：出力がN:Nになっているノード。無限ループもある
-  export class OmniNode extends Node {
+  //ニューロンが如く接続先を重み評価して次を判断する
+  export class NewralNode extends Node {
 
-    private $next:Map<()=>boolean,OmniNode>;
+    private $next:Map<()=>boolean,NewralNode>;
 
-    public static get All():Array<OmniNode>{
-      return OmniNode.$All.filter(o=>o instanceof OmniNode);
+    public static get All():Array<NewralNode>{
+      return NewralNode.$All.filter(o=>o instanceof NewralNode);
     }
 
     public constructor(prop:Object={}){
@@ -16,7 +16,7 @@ namespace ST.DATA {
     }
 
     //次のノードを返す
-    public Next():OmniNode{
+    public Next():NewralNode{
       
       var success:()=>boolean = 
       Array.from(this.$next.keys()).find(
@@ -26,7 +26,7 @@ namespace ST.DATA {
       return result;
     }
 
-    public setNext(exp:()=>boolean,$o:OmniNode):boolean{
+    public setNext(exp:()=>boolean,$o:NewralNode):boolean{
       if(this.$next.has(exp))return false;
 
       this.$next.set(exp,$o);
@@ -34,11 +34,11 @@ namespace ST.DATA {
     // << -- setter ここまで
 
     // >>geter ここから
-    get Nexts(): Array<OmniNode>{
-      return Array.from(this.$next.values());
+    get Nexts(): NewralNode {
+      return this;
     }
     
   }
 }
 
-export default ST.DATA.OmniNode;
+export default ST.DATA.NewralNode;
