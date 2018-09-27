@@ -16,11 +16,13 @@ namespace ST.DATA {
     }
 
     public next():OmniNode{
-
-      for(var k in this.$out.keys()){
-        //
-      }
-      return this;
+      
+      var k = 
+      this.$out.find(
+        $o=>$o()
+      );
+      var result = this.$out[k];
+      return result;
     }
     // << -- setter ここまで
 
