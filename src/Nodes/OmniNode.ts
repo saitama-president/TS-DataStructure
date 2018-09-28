@@ -5,7 +5,7 @@ namespace ST.DATA {
   //入力：出力がN:Nになっているノード。無限ループもある
   export class OmniNode extends Node {
 
-    private $next:Map<()=>boolean,OmniNode>;
+    private $next:Map<()=>boolean,OmniNode>=new Map<()=>boolean,OmniNode>();
 
     public static get All():Array<OmniNode>{
       return OmniNode.$All.filter(o=>o instanceof OmniNode);
@@ -27,7 +27,10 @@ namespace ST.DATA {
     }
 
     public setNext(exp:()=>boolean,$o:OmniNode):boolean{
-      if(this.$next.has(exp))return false;
+      if(this.$next.has(exp)){
+        console.log("exists item");
+        return false;
+      }
 
       this.$next.set(exp,$o);
     }
