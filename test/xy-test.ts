@@ -1,6 +1,6 @@
 import { assert } from "chai";
 import Node from "../src/Node";
-import XYNode from "../src/XYNode";
+import XYNode from "../src/Nodes/XYNode";
 
 describe("XYNode Test V", () => {
   var XY:Array<XYNode> = XYNode.Generate(8,8);

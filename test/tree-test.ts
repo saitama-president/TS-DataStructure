@@ -1,8 +1,8 @@
 import { assert } from "chai";
 import Node from "../src/Node";
-import TreeNode from "../src/TreeNode";
+import TreeNode from "../src/Nodes/TreeNode";
 
-describe("Node Test V", () => {
+describe("Tree Node Test", () => {
   var Root = new TreeNode({});
   var Middle = new TreeNode({});
   var Tip = new TreeNode({});

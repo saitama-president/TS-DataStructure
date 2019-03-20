@@ -1,6 +1,6 @@
 import { assert } from "chai";
 import Node from "../src/Node";
-import LinkNode from "../src/LinkNode";
+import LinkNode from "../src/Nodes/LinkNode";
 
 describe("リンクノードのテスト", () => {
   var A = new LinkNode();
