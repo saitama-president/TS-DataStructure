@@ -8,7 +8,7 @@
     "test": "mocha --reporter tap --recursive --require ts-node/register 'test/*.ts'",
     "ok": "echo 12345",
     "format": "prettier --write './**/*.ts'",
-    "watch": "ts-node scripts/watch.ts 'ts-node test.ts'",
+    "watch": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec  npm test",
     "build": "tsc --outDir ./dist/"
   },
   "exclude": [
